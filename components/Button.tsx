@@ -1,15 +1,24 @@
 'use client'
-import React from 'react'
 
-const Button = () => {
+import axios from 'axios'
+
+const Button = ({ searchvalue }: any) => {
     function ButtonClick() {
-        console.log
+        console.log('Sending:', searchvalue);
+        axios.post('/api/ReturnGameLink', { game: searchvalue })
+            .then(res => {
+                console.log('Response:', res.data);
+            })
+            .catch(err => {
+                console.error('Error:', err);
+            });
     }
+
     return (
         <div>
-            <button onClick={ButtonClick} > click here</button>
+            <button onClick={ButtonClick}>Click here</button>
         </div>
-    )
-}
+    );
+};
 
-export default Button
+export default Button;

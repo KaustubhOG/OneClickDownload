@@ -1,14 +1,10 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-
-const page = () => {
-    const [searchinput, setsearchinput] = useState('')
+const SearchBar = ({ value, setvalue }: any) => {
     function validation(e: any) {
         const input = e.target.value;
         const validstring = input.toLowerCase();
-        console.log(validstring)
-        setsearchinput(validstring);
+        setvalue(validstring);
     }
 
     return (
@@ -16,13 +12,12 @@ const page = () => {
             <input
                 type="text"
                 placeholder="Game Name"
-                value={searchinput}
+                value={value}
                 onChange={validation}
             />
-            <p>type {searchinput} </p>
+            <p>You typed: {value}</p>
         </div>
+    );
+};
 
-    )
-}
-
-export default page;
+export default SearchBar;

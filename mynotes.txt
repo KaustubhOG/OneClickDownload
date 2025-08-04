@@ -1,0 +1,23 @@
+🧠 3. State Management
+→ searchinput → shared state in page.tsx
+→ Passed to:
+  ↳ SearchBar → reads & updates (setsearchinput)
+  ↳ Button → reads value to send to backend
+
+🧩 4. Props Flow
+→ value and setvalue passed to SearchBar
+→ searchvalue passed to Button
+
+📮 5. Data Handling
+→ SearchBar updates input using setvalue
+→ Button triggers POST request with searchvalue
+→ Request goes to: /api/ReturnGameLink
+
+📦 6. Backend Setup (so far)
+→ File: /app/api/ReturnGameLink/route.ts
+→ Handles POST requests
+→ Response: simple JSON message
+
+
+
+then we add the database 
